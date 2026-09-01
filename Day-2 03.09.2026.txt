@@ -1,0 +1,80 @@
+Day-2: File Ownership and Access Control
+
+Topics: chown, chgrp, ownership + permissions
+
+Part A — Ownership Investigation (10 Minutes)
+Create a directory named ownership_lab.
+Inside it, create:
+incident_report.txt
+network.log
+credentials.txt
+Display the detailed information for these files.
+For each file, identify:
+Owner
+Group
+Owner permissions
+Group permissions
+Others permissions
+Determine the UID and GID of the current user.
+Compare the UID/GID information with the ownership displayed for the newly created files.
+Explain the difference between file ownership and file permissions.
+
+Part B — chown: Changing Ownership (15 Minutes)
+Change the owner of incident_report.txt to alice.
+Change the owner of network.log to bob.
+Change the owner of credentials.txt to charlie.
+Verify each change.
+Try changing the owner of a file to another user without using sudo. Record the result.
+Explain why an ordinary user is generally not permitted to transfer file ownership to another user.
+Using a single command, configure:
+incident_report.txt
+Owner : alice
+Group : security
+Verify the resulting ownership.
+
+Part C — chgrp: Changing Group Ownership (15 Minutes)
+Change the group ownership of network.log to developers.
+Change the group ownership of credentials.txt to security.
+Verify the changes.
+Display the group memberships of alice, bob, and charlie.
+Log in as alice and create a file named alice_report.txt.
+Attempt to change the group of alice_report.txt to security.
+Attempt to change its group to developers.
+Compare the results.
+Explain how a user's group membership affects their ability to change the group ownership of a file they own.
+
+
+Part D — Ownership + Permission Investigation (20 Minutes)
+
+Configure:
+
+-rw-r----- alice security incident_report.txt
+Identify what operations are available to:
+alice
+charlie
+bob
+
+A user who belongs to neither security nor the file owner
+charlie belongs to security. Test whether Charlie can:
+Read incident_report.txt
+Modify incident_report.txt
+Delete incident_report.txt
+
+Record the result of each operation.
+
+Change the permissions to:
+-rw-rw----
+
+Repeat the test as charlie.
+
+Explain why Charlie's access changed even though the owner and group of the file did not change.
+Remove bob from the security group.
+
+Without changing the file's ownership or permissions, test Bob's access again.
+
+Explain why Bob's effective permissions changed.
+
+
+Refer: https://towardsdev.com/ownership-groups-in-linux-chown-chgrp-a2ae60b53083
+
+"Practice isn't the thing you do once you're good. It's the thing you do that makes you good." — Malcolm Gladwell

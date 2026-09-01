@@ -1,0 +1,49 @@
+Day-1: 01.09.2026
+Deadline: 01.09.2026
+
+Part A — User and System Investigation   (10 minutes) 
+
+Determine the username of the account you are currently using.
+Display your UID, primary GID, and supplementary groups.
+Display all users currently logged in to the system.
+Determine what activities the currently logged-in users are performing.
+Examine /etc/passwd and identify the following information for your current account:
+Username
+UID
+GID
+Home directory
+Login shell
+Determine how many user-account entries are present in /etc/passwd.
+Display only the username and UID fields from /etc/passwd.
+Find all accounts whose UID is 0. Explain the security significance of UID 0.
+Compare /etc/passwd and /etc/shadow. Why are password hashes stored in /etc/shadow instead of /etc/passwd?
+
+
+Part B — Creating and Verifying Users (20 Minutes) 
+Create the following users and ensure that a home directory is created for each:
+
+alice, bob, charlie
+
+Verify that all three accounts have been added to /etc/passwd.
+Determine the UID assigned to each newly created user.
+Determine the home directory and default shell assigned to alice.
+Inspect /home and verify that the required home directories were created.
+Set passwords for all three accounts.
+Switch from your current account to alice using a login shell. Verify the change using an appropriate command, and then return to your original account.
+
+
+
+Part C — Group Management and Access Control (30 Minutes)
+Create two groups:
+
+security and developers
+
+Add alice and charlie to the security group.
+Add bob to the developers group.
+Without switching accounts, verify the group membership of all three users.
+Display the entries corresponding to security and developers from /etc/group.
+Add bob to the security group without removing him from the developers group.
+Verify that bob now belongs to both groups.
+
+dream is not that which you see while sleeping; it is something that does not let you sleep
+                          - Dr. APJ
