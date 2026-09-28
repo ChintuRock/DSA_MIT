@@ -1,0 +1,7 @@
+Q1. Spotify Playlist Manager 
+A music streaming application keeps a user's playlist as a singly linked list. Each node stores a song ID, title, artist and play count. Songs the user wants to hear next are held in an "Up Next" queue. Every song that has been played is recorded in a "Recently Played" history.
+(a) Define the structure for a song node. Write functions to add a song at the end of the playlist, delete a song by ID, and display the playlist. 
+(b) Implement the "Up Next" queue using a linked list. Write enqueue to add a song by ID and dequeue to play the next song. When a song is played, its play count in the playlist must increase by 1.
+(c) Implement the "Recently Played" history as a stack. Write a function for the "Previous" button that removes the most recent song from the history and displays it. 
+(d) Write a function that arranges the playlist in descending order of play count using Bubble Sort. 
+(e) Explain why a queue suits "Up Next" and a stack suits "Recently Played".
