@@ -1,0 +1,48 @@
+Failed login alert - Batch-I
+
+Use this sample log:
+2026-10-23 09:00:01 INFO user=alice ip=192.0.2.10 login_success
+2026-10-23 09:01:02 WARN user=bob ip=192.0.2.20 login_failed
+2026-10-23 09:02:03 ERROR user=admin ip=192.0.2.20 access_denied
+2026-10-23 09:03:04 INFO user=alice ip=192.0.2.10 logout
+2026-10-23 09:04:05 WARN user=admin ip=192.0.2.30 login_failed
+
+
+Question 1: Failed login alert
+Write a shell script that:
+- Accepts the log filename and a positive integer alert threshold as command-line arguments.
+- Checks whether the log file exists and is readable.
+- Counts entries whose event is login_failed.
+- Displays the total number of failed login attempts.
+- Displays “ALERT: Failed login threshold reached” when the count is greater than or equal to the threshold; otherwise, displays “Failed login count is below the threshold.”
+- Appends the report generation timestamp, failed login count, threshold, and alert status to login_report.log.
+Test: Run the script with thresholds of 2 and 3, and compare the results.
+
+Display lines beginning with the date 2026-10-23.
+Display events with severity WARN or ERROR.
+Display entries belonging to either user=alice or user=admin.
+
+Question 2: Authentication summary report
+Write a shell script that accepts the log filename as a command-line argument and generates a report containing:
+- Current Linux username.
+- Report generation date and time.
+- Total number of log entries.
+- Number of successful logins (login_success).
+- Number of failed logins (login_failed).
+- Number of access-denied events (access_denied).
+- Number of logout events (logout).
+Save the report to authentication_report.txt.
+
+
+Question 3: Log filtering and sanitization using sed
+Using sed, perform the following tasks independently on the original authentication.log:
+1. Display only lines containing login_failed.
+2. Display only events with severity WARN or ERROR.
+3. Display lines 2–4.
+4. Display the log with INFO events removed.
+5. Display the log with each user=... value replaced by user=REDACTED.
+6. Display the log with each ip=... value replaced by ip=MASKED.
+7. Apply both replacements to all original log entries and save the sanitized output to authentication_sanitized.log.
+Keep the original authentication.log unchanged.
+
+
