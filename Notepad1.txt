@@ -1,0 +1,79 @@
+https://chatgpt.com/share/6aeb009a-5528-83ee-a982-79ae0b1390ab   --> Explainations
+
+https://chatgpt.com/share/6aeb11f3-36a4-83e8-87ad-0aca8fe92554   --> Implementations
+
+https://chatgpt.com/share/6aeb8799-a99c-83ec-942b-5a8089a5827d   --> XOR with password cracking
+
+XOR:
+----
+
+
+# XOR Encryption and Decryption
+
+message = input("Enter the message: ")
+key = input("Enter a single character key: ")
+
+# Encryption
+encrypted = ""
+
+for char in message:
+    encrypted += chr(ord(char) ^ ord(key))
+
+print("Encrypted message:", [ord(c) for c in encrypted])
+
+# Decryption
+decrypted = ""
+
+for char in encrypted:
+    decrypted += chr(ord(char) ^ ord(key))
+
+print("Decrypted message:", decrypted)
+
+
+
+RSA:
+----
+
+from math import isqrt, gcd
+
+# Given public values
+N = 3233
+e = 17
+C = 2790
+
+# Step 1: Factor N
+for candidate in range(2, isqrt(N) + 1):
+    if N % candidate == 0:
+        p = candidate
+        q = N // candidate
+        break
+else:
+    raise ValueError("No factors found")
+
+print("p =", p)
+print("q =", q)
+print("Factor check:", p * q == N)
+
+# Step 2: Calculate phi(N)
+phi = (p - 1) * (q - 1)
+print("Phi(N) =", phi)
+
+# Step 3: Calculate private exponent
+if gcd(e, phi) != 1:
+    raise ValueError("No modular inverse")
+
+d = pow(e, -1, phi)
+print("Private exponent d =", d)
+
+print("Inverse check:", (e * d) % phi)
+
+# Step 4: Decrypt
+M = pow(C, d, N)
+
+print("Plaintext integer:", M)
+print("ASCII character:", chr(M))
+
+# Step 5: Verify
+C_check = pow(M, e, N)
+
+print("Verification:", C_check == C)
