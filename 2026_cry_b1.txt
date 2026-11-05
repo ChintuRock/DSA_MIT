@@ -1,0 +1,45 @@
+1. Affine cipher cryptanalysis
+
+Write a Python program to decipher the following ciphertext using a brute-force attack. Assume that the Affine cipher was used with the mapping A = 0, B = 1, …, Z = 25.
+XPALASXYFGFUKPXUSOGEUTKCDGFXANMGNVS
+
+The plaintext "ab" is encrypted as "GL".
+- Generate all valid key pairs and their corresponding plaintexts.
+- Use the given plaintext–ciphertext pair to identify the correct keys.
+- Display the keys and the recovered plaintext.
+
+2. Algorithm identification, encryption, and decryption
+
+Examine the following pseudocode:
+BEGIN
+    INPUT message
+    SET result ← ""
+
+    FOR EACH character IN message
+        IF character is an uppercase letter THEN
+            position ← ASCII(character) − ASCII('A')
+            result ← result + CHARACTER(ASCII('Z') − position)
+
+        ELSE IF character is a lowercase letter THEN
+            position ← ASCII(character) − ASCII('a')
+            result ← result + CHARACTER(ASCII('z') − position)
+
+        ELSE
+            result ← result + character
+        END IF
+    END FOR
+
+    OUTPUT result
+END
+
+- Identify the cipher and state whether it uses substitution or transposition.
+- Implement the algorithm in Python.
+- Encrypt the message "Cyber Security".
+- Decrypt the resulting ciphertext and verify that the original message is recovered.
+
+
+3. Crack the password protected document. 
+ Please find attached password protected pdf.
+    Use wordlist - rockyou.txt which is available in Kali.
+    Wordlist can be installed using
+    ` sudo apt update && sudo apt install wordlists `
